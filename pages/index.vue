@@ -6,7 +6,7 @@
         carregando...
       </div>
       <div v-else class="section">
-        <div class="columns is-multiline is-desktop">
+        <div class="columns is-multiline">
           <div v-for="disco in discos" :key="disco.id" class="column is-narrow">
             <disco-thumb :disco="disco" />
           </div>
