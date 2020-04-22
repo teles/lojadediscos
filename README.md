@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# lojadediscos
-=======
 # lojadediscos
 
 > My fabulous Nuxt.js project
