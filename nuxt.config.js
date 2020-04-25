@@ -2,6 +2,12 @@
 export default {
   mode: 'universal',
   /*
+  ** Environment variables https://nuxtjs.org/api/configuration-env/
+  */
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
+  /*
   ** Headers of the page
   */
   head: {

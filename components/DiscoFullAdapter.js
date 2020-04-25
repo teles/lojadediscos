@@ -37,7 +37,6 @@ class DiscoFullAdapter {
     //   total[key] = note.value
     //   return total
     // }, {})
-
   }
 }
 export default DiscoFullAdapter

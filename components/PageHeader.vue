@@ -1,13 +1,7 @@
 <template>
-  <section class="hero is-medium is-dark is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <p class="title">
-          Loja de discos
-        </p>
-      </div>
-    </div>
-  </section>
+  <div class="outline-grid__header__content">
+    Loja de discos
+  </div>
 </template>
 
 <script>

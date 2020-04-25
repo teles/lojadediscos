@@ -1,20 +1,16 @@
 <template>
   <div>
-    <page-header/>
-    <section class="container is-fullhd">
-      <div v-if="$nuxt.$loading === true" class="section">
+    <section>
+      <div v-if="$nuxt.$loading === true">
         carregando...
       </div>
-      <div v-else class="section">
-        <div class="columns is-multiline">
-          <div v-for="disco in discos" :key="disco.id" class="column is-narrow">
-            <disco-thumb :disco="disco" />
-          </div>
+      <div v-else>
+        <div v-for="disco in discos" :key="disco.id">
+          <disco-thumb :disco="disco" />
         </div>
       </div>
     </section>
   </div>
-
 </template>
 
 <script>
@@ -22,12 +18,10 @@ import Discojs from 'discojs'
 import DiscoThumb from '../components/DiscoThumb'
 import DiscoAdapter from '../components/DiscoAdapter'
 import configs from '../discos.json'
-import PageHeader from '../components/PageHeader'
 
 export default {
   components: {
-    DiscoThumb,
-    PageHeader
+    DiscoThumb
   },
   async asyncData () {
     const disco = new Discojs({

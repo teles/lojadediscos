@@ -1,25 +1,39 @@
 <template>
-  <div class="container">
-    <div class="image-box">
-      <img v-for="image in disco.images" :src="image.url">
+  <div class="layout">
+    <div class="layout__images">
+      <disco-photos :photos="disco.images" />
     </div>
-    <h1 class="page-title"> {{ disco.artist.name }} - {{ disco.name }} - {{ disco.year }}</h1>
-    <dl class="tracklist">
-      <template v-for="track in disco.tracklist">
-        <dt>{{ track.duration }}</dt>
-        <dd>{{ track.position }} {{ track.title }}</dd>
-      </template>
-    </dl>
+    <div class="layout__content">
+      <section>
+        <div>
+          <div>
+            <h1>
+              {{ disco.name }} - {{ disco.year }}
+            </h1>
+            <h2>
+              {{ disco.artist.name }}
+            </h2>
+          </div>
+        </div>
+        <p>R$ 30,00</p>
+      </section>
+      <tracklist :tracklist="disco.tracklist" style="padding-top:0" />
+    </div>
   </div>
 </template>
 
 <script>
 import Discojs from 'discojs'
-import DiscoFullAdapter from "../../../components/DiscoFullAdapter"
+import DiscoFullAdapter from '../../../components/DiscoFullAdapter'
 import configs from '../../../discos.json'
+import DiscoPhotos from '../../../components/DiscoPhotos'
+import Tracklist from '../../../components/Tracklist'
 
 export default {
-  components: {},
+  components: {
+    Tracklist,
+    DiscoPhotos
+  },
   async asyncData ({ params }) {
     const disco = new Discojs({
       userToken: configs.token
@@ -42,15 +56,20 @@ export default {
       title: `${this.disco.artist.name} - ${this.disco.name}`,
       link: [{
         rel: 'canonical',
-        href: this.disco.slug
+        href: `${process.env.baseUrl}/${this.$route.path}`
       }]
     }
   }
 }
 </script>
 
-<style>
+<style lang="css">
+  .layout {
+    display: inline-flex;
+  }
 
-
-
+  .layout__images {
+    max-width: 50%;
+    width: 400px;
+  }
 </style>
