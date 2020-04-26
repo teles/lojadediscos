@@ -4,9 +4,8 @@
       <img :src="photos[currentPhotoIndex].url">
     </figure>
     <div class="carousel">
-
       <button class="carousel-controller--first" :disabled="currentPhotoIndex === 0" @click="goToPreviousPhoto">
-        <font-awesome-icon :icon="['fas', 'chevron-left']"/>
+        <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </button>
 
       <button
@@ -19,10 +18,9 @@
       </button>
 
       <button class="carousel-controller--last" :disabled="currentPhotoIndex === photos.length - 1" @click="goToNextPhoto">
-        <font-awesome-icon :icon="['fas', 'chevron-right']"/>
+        <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </button>
     </div>
-
   </div>
 </template>
 

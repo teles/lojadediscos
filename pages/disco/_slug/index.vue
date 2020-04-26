@@ -35,15 +35,11 @@
         {{ disco.artist.name }} - Vinil - 7pm
       </h2>
       <div class="rating">
-        <span class="rating__stars--4.6">
-          <font-awesome-icon :icon="['fas', 'star']"/>
-          <font-awesome-icon :icon="['fas', 'star']"/>
-          <font-awesome-icon :icon="['fas', 'star']"/>
-          <font-awesome-icon :icon="['fas', 'star']"/>
-          <font-awesome-icon :icon="['fas', 'star']"/>
+        <span class="rating__stars">
+          <rating-star :value="disco.rating.average" />
         </span>
         <span class="rating__stars__value">
-          <span>4.8 no</span>
+          <span>{{ disco.rating.average }} no</span>
           <a href="https://www.discogs.com">discogs</a>
         </span>
       </div>
@@ -88,11 +84,13 @@ import DiscoFullAdapter from '../../../components/DiscoFullAdapter'
 import configs from '../../../discos.json'
 import DiscoPhotos from '../../../components/DiscoPhotos'
 import Tracklist from '../../../components/Tracklist'
+import RatingStar from '../../../components/RatingStar'
 
 export default {
   components: {
     Tracklist,
-    DiscoPhotos
+    DiscoPhotos,
+    RatingStar
   },
   async asyncData ({ params }) {
     const disco = new Discojs({
