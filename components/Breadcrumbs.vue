@@ -1,23 +1,25 @@
 <template>
-  <ul class="breadcrumbs">
-    <li class="breadcrumbs__item">
-      <a href="/" class="breadcrumbs__anchor">
-        Home
-      </a>
-    </li>
-    <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="breadcrumbs__item">
-      <n-link
-        v-if="index < breadcrumbs.length - 1"
-        :to="{ name: breadcrumb.route, params: breadcrumb.params }"
-        class="breadcrumbs__anchor"
-      >
-        {{ breadcrumb.title }}
-      </n-link>
-      <span v-else class="breadcrumbs__anchor--current">
-        {{ breadcrumb.title }}
-      </span>
-    </li>
-  </ul>
+  <div class="breadcrumbs">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a href="/" class="breadcrumbs__anchor">
+          Home
+        </a>
+      </li>
+      <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="breadcrumbs__item">
+        <n-link
+          v-if="index < breadcrumbs.length - 1"
+          :to="{ name: breadcrumb.route, params: breadcrumb.params }"
+          class="breadcrumbs__anchor"
+        >
+          {{ breadcrumb.title }}
+        </n-link>
+        <span v-else class="breadcrumbs__anchor--current">
+          {{ breadcrumb.title }}
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -65,7 +67,12 @@ export default {
 @import '../sass/spacing.sass'
 
 .breadcrumbs
-  display: inline-flex
+  overflow: auto
+  max-width: 100%
+  white-space: nowrap
+
+  +element('list')
+    display: flex
 
   +element('item')
 
