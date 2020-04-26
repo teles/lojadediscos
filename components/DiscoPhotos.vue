@@ -3,23 +3,26 @@
     <figure class="disco-photos image is-square">
       <img :src="photos[currentPhotoIndex].url">
     </figure>
+    <div class="carousel">
 
-    <button :disabled="currentPhotoIndex === 0" @click="goToPreviousPhoto">
-      anterior
-    </button>
+      <button class="carousel-controller--first" :disabled="currentPhotoIndex === 0" @click="goToPreviousPhoto">
+        <font-awesome-icon :icon="['fas', 'chevron-left']"/>
+      </button>
 
-    <button
-      v-for="(photo, index) in photos"
-      :key="index"
-      :class="index === currentPhotoIndex ? 'carousel-controller--active' : 'carousel-controller'"
-      @click="goToPhoto(index)"
-    >
-      {{ index }}
-    </button>
+      <button
+        v-for="(photo, index) in photos"
+        :key="index"
+        :class="index === currentPhotoIndex ? 'carousel-controller--active' : 'carousel-controller'"
+        @click="goToPhoto(index)"
+      >
+      &nbsp;
+      </button>
 
-    <button :disabled="currentPhotoIndex === photos.length - 1" @click="goToNextPhoto">
-      próxima
-    </button>
+      <button class="carousel-controller--last" :disabled="currentPhotoIndex === photos.length - 1" @click="goToNextPhoto">
+        <font-awesome-icon :icon="['fas', 'chevron-right']"/>
+      </button>
+    </div>
+
   </div>
 </template>
 
@@ -51,6 +54,44 @@ export default {
 }
 </script>
 <style lang="sass">
-  .carousel-controller--active
-    background-color: red
+  @import "../sass/bem.sass"
+  @import "../sass/spacing.sass"
+
+  .carousel
+    display: flex
+    justify-content: space-between
+    margin-top: spacing(1)
+
+  .carousel-controller
+    border: 0
+    padding: 0
+    outline: none
+    display: block
+    cursor: pointer
+    color: #ccc
+    border-radius: 99px
+    background-color: #ccc
+    width: 12px
+    height: 12px
+    margin: 7px
+    &:hover
+      background-color: #8cc9f0
+
+    +modifier('first')
+      background: none
+      margin-right: auto
+      &:hover
+        background: none
+        color: #8cc9f0
+
+    +modifier('last')
+      background: none
+      margin-left: auto
+      &:hover
+        background: none
+        color: #8cc9f0
+
+    +modifier('active')
+      background: orange
+
 </style>

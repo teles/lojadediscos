@@ -1,23 +1,83 @@
 <template>
-  <div class="layout">
-    <div class="layout__images">
+  <div class="stage">
+    <div class="stage__header">
+      <ul class="breadcrumb">
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__anchor">
+            Home
+          </a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__anchor">
+            Rock
+          </a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__anchor">
+            Metallica
+          </a>
+        </li>
+        <li class="breadcrumb__item">
+          <a href="/" class="breadcrumb__anchor">
+            Black Album
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="stage__featured">
       <disco-photos :photos="disco.images" />
     </div>
-    <div class="layout__content">
-      <section>
-        <div>
-          <div>
-            <h1>
-              {{ disco.name }} - {{ disco.year }}
-            </h1>
-            <h2>
-              {{ disco.artist.name }}
-            </h2>
-          </div>
-        </div>
-        <p>R$ 30,00</p>
-      </section>
-      <tracklist :tracklist="disco.tracklist" style="padding-top:0" />
+    <div class="stage__content">
+      <h1 class="stage__title">
+        {{ disco.name }} - {{ disco.year }}
+      </h1>
+      <h2 class="stage__subtitle">
+        {{ disco.artist.name }} - Vinil - 7pm
+      </h2>
+      <div class="rating">
+        <span class="rating__stars--4.6">
+          <font-awesome-icon :icon="['fas', 'star']"/>
+          <font-awesome-icon :icon="['fas', 'star']"/>
+          <font-awesome-icon :icon="['fas', 'star']"/>
+          <font-awesome-icon :icon="['fas', 'star']"/>
+          <font-awesome-icon :icon="['fas', 'star']"/>
+        </span>
+        <span class="rating__stars__value">
+          <span>4.8 no</span>
+          <a href="https://www.discogs.com">discogs</a>
+        </span>
+      </div>
+      <div class="stage__description">
+        Um dos discos mais aclamados da história do rock
+      </div>
+      <div class="buy-box">
+        <p class="buy-box__price">
+          R$ 120,00
+        </p>
+        <button class="buy-box__action">
+          Comprar
+        </button>
+        <p class="buy-box__stock">
+          <strong>
+            Disponibilidade:
+          </strong>
+          <span>
+            Em estoque.
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="stage__extra">
+      <h3 class="stage__content__title">
+        Lista de músicas
+      </h3>
+      <tracklist :tracklist="disco.tracklist" />
+      <h3 class="stage__content__title">
+        Comentários
+      </h3>
+      <div>
+        Bla bla bla
+      </div>
     </div>
   </div>
 </template>
@@ -63,13 +123,85 @@ export default {
 }
 </script>
 
-<style lang="css">
-  .layout {
-    display: inline-flex;
-  }
+<style lang="sass">
+@import '../../../sass/breakpoints.sass'
+@import '../../../sass/bem.sass'
+@import '../../../sass/spacing.sass'
 
-  .layout__images {
-    max-width: 50%;
-    width: 400px;
-  }
+.breadcrumb
+  display: inline-flex
+
+.buy-box
+  background-color: hsl(60, 100%, 90%)
+  border: 1px solid hsl(60, 100%, 60%)
+  padding: 8px
+  margin: 16px 0
+
+  +element('action')
+    font-size: 20px
+    font-weight: 300
+    background: #666
+    color: #fff
+    border: none
+    padding: 8px
+    border-radius: 4px
+    cursor: pointer
+
+  +element('price')
+    margin-bottom: 8px
+    color: orange
+    font-weight: 600
+    font-size: 18px
+
+  +element('stock')
+    margin-top: 8px
+
+.stage
+  display: grid
+  grid-template-columns: 1fr
+  grid-gap: spacing(2)
+  grid-template-areas:  "header" "featured" "content" "extra"
+
+  @media(min-width: $screen-tablet-min)
+    grid-template-columns: 1fr minmax($screen-phone-min, 360px) minmax($screen-phone-min, 600px) 1fr
+    grid-template-areas: ". header header ." ". featured content ."  ". extra extra ."
+
+  +element('title')
+    font-size: 30px
+    font-family: "Open Sans", sans-serif
+    font-weight: 600
+    line-height: 1.2
+    margin-bottom: spacing(1)
+    color: #333
+
+  +element('header')
+    content: ''
+    grid-area: header
+
+  +element('description')
+    content: ''
+
+  +element('featured')
+    content: ''
+    grid-area: featured
+
+  +element('content')
+    content: ''
+    grid-area: content
+
+    +element('title')
+      font-size: 21px
+      font-weight: 500
+      line-height: 1.4
+      margin: spacing(2) 0
+
+  +element('extra')
+    grid-area: extra
+
+  +element('subtitle')
+    color: #666
+    font-size: 18px
+    margin-bottom: 8px
+    font-weight: 400
+
 </style>
