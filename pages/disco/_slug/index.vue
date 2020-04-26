@@ -42,23 +42,7 @@
       <div class="stage__description">
         &nbsp;
       </div>
-      <div class="buy-box">
-        <p class="buy-box__price">
-          R$ 120,00
-        </p>
-        <button class="buy-box__action">
-          <span>Falar com o vendedor</span>
-          <font-awesome-icon :icon="['fab', 'whatsapp']" />
-        </button>
-        <p class="buy-box__stock">
-          <strong>
-            Disponibilidade:
-          </strong>
-          <span>
-            Em estoque.
-          </span>
-        </p>
-      </div>
+      <buy-box />
     </div>
     <div class="stage__extra">
       <section class="stage__section">
@@ -87,13 +71,15 @@ import PhotoGallery from '../../../components/PhotoGallery'
 import Tracklist from '../../../components/Tracklist'
 import RatingStar from '../../../components/RatingStar'
 import Breadcrumbs from '../../../components/Breadcrumbs'
+import BuyBox from '../../../components/BuyBox'
 
 export default {
   components: {
     Breadcrumbs,
     Tracklist,
     PhotoGallery,
-    RatingStar
+    RatingStar,
+    BuyBox
   },
   async asyncData ({ params }) {
     const disco = new Discojs({
@@ -128,37 +114,4 @@ export default {
 
 <style lang="sass">
 @import '../../../sass/stage.sass'
-@import '../../../sass/spacing.sass'
-
-.breadcrumb
-  display: inline-flex
-
-.buy-box
-  background-color: #fff2bd
-  border: 1px solid #ffdd57
-  padding: spacing(1)
-  margin: spacing(2) 0
-
-  +element('action')
-    font-size: 20px
-    font-weight: 300
-    background-color: #128c7e
-    color: #fff
-    border: none
-    padding: 8px
-    border-radius: 4px
-    cursor: pointer
-    transition: all ease-in-out .2s
-    &:hover
-      background-color: #15a292
-
-  +element('price')
-    margin-bottom: spacing(1)
-    color: orange
-    font-weight: 600
-    font-size: 18px
-
-  +element('stock')
-    margin-top: spacing(1)
-
 </style>
