@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="layout">
     <page-header />
     <nuxt />
-    <page-footer />
+    <page-footer class="layout__footer"/>
   </div>
 </template>
 
@@ -17,3 +17,15 @@ export default {
   }
 }
 </script>
+<style lang="sass">
+@import '../sass/bem.sass'
+
+.layout
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+  +element('footer')
+    margin-top: auto
+
+</style>

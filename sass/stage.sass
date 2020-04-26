@@ -14,6 +14,10 @@
     grid-template-columns: $desktop-4-grid-columns
     grid-template-areas: ". header header ." ". featured content ."  ". extra extra ."
 
+  +modifier('no-featured')
+    @media(min-width: $screen-tablet-min)
+      grid-template-areas: ". header header ." ". content content ."
+
   +element('title')
     font-size: 30px
     font-family: "Open Sans", sans-serif

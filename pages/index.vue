@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <section>
+  <div class="stage--no-featured">
+    <section class="stage__content">
       <div v-if="$nuxt.$loading === true">
         carregando...
       </div>
-      <div v-else>
-        <div v-for="disco in discos" :key="disco.id">
-          <disco-thumb :disco="disco" />
-        </div>
+      <div v-else class="disco-grid">
+        <disco-thumb v-for="disco in discos" :key="disco.id" :disco="disco" />
       </div>
     </section>
   </div>
@@ -45,5 +43,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="sass">
+
+@import '../sass/stage.sass'
+
+.disco-grid
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr) )
+  display: grid
 </style>
