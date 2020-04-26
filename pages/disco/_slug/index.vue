@@ -122,9 +122,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import '../../../sass/breakpoints.sass'
-@import '../../../sass/bem.sass'
-@import '../../../sass/spacing.sass'
+@import '../../../sass/stage.sass'
 
 .breadcrumb
   display: inline-flex
@@ -153,53 +151,5 @@ export default {
 
   +element('stock')
     margin-top: 8px
-
-.stage
-  display: grid
-  grid-template-columns: 1fr
-  grid-gap: spacing(2)
-  grid-template-areas:  "header" "featured" "content" "extra"
-
-  @media(min-width: $screen-tablet-min)
-    grid-template-columns: 1fr minmax($screen-phone-min, 360px) minmax($screen-phone-min, 600px) 1fr
-    grid-template-areas: ". header header ." ". featured content ."  ". extra extra ."
-
-  +element('title')
-    font-size: 30px
-    font-family: "Open Sans", sans-serif
-    font-weight: 600
-    line-height: 1.2
-    margin-bottom: spacing(1)
-    color: #333
-
-  +element('header')
-    content: ''
-    grid-area: header
-
-  +element('description')
-    content: ''
-
-  +element('featured')
-    content: ''
-    grid-area: featured
-
-  +element('content')
-    content: ''
-    grid-area: content
-
-    +element('title')
-      font-size: 21px
-      font-weight: 500
-      line-height: 1.4
-      margin: spacing(2) 0
-
-  +element('extra')
-    grid-area: extra
-
-  +element('subtitle')
-    color: #666
-    font-size: 18px
-    margin-bottom: 8px
-    font-weight: 400
 
 </style>
