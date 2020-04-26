@@ -32,11 +32,18 @@ class DiscoFullAdapter {
     }))
 
     this.year = release.year
-    this.genre = {
-      name: release.genres[0],
-      slug: Slugify(release.genres[0])
-    }
+    this.genres = release.genres.map(genre => ({
+      name: genre,
+      slug: Slugify(genre)
+    }))
 
+    this.formats = release.formats.map(format => ({
+      name: format.name,
+      slug: Slugify(format.name)
+    }))
+    this.country = release.country
+
+    console.log(release) // eslint-disable-line
     // this.customFields = (release.notes || []).reduce((total, note) => {
     //   const key = Slugify(fields.fields.find(field => field.id === note.field_id).name)
     //   total[key] = note.value

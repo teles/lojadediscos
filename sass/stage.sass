@@ -53,6 +53,10 @@
 
   +element('subtitle')
     color: #666
-    font-size: 18px
+    font-size: 16px
     margin-bottom: 8px
     font-weight: 400
+
+    +element('part')
+      &:not(:first-child)
+        margin-left: spacing(1)

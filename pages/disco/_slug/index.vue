@@ -8,10 +8,27 @@
     </div>
     <div class="stage__content">
       <h1 class="stage__title">
-        {{ disco.name }} - {{ disco.year }}
+        {{ disco.name }} <span v-if="disco.year > 0">- {{ disco.year }}</span>
       </h1>
       <h2 class="stage__subtitle">
-        {{ disco.artist.name }} - Vinil - 7pm
+        <strong class="stage__subtitle__part">
+          Artista:
+        </strong>
+        <span>
+          {{ disco.artist.name }}
+        </span>
+        <strong class="stage__subtitle__part">
+          Formato:
+        </strong>
+        <span>
+          {{ disco.formats.map(format => `${format.name}`).join(', ') }}
+        </span>
+        <strong class="stage__subtitle__part">
+          País:
+        </strong>
+        <span>
+          {{ disco.country }}
+        </span>
       </h2>
       <div class="rating">
         <span class="rating__stars">
@@ -23,7 +40,7 @@
         </span>
       </div>
       <div class="stage__description">
-        Um dos discos mais aclamados da história do rock
+        &nbsp;
       </div>
       <div class="buy-box">
         <p class="buy-box__price">

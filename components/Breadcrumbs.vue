@@ -35,14 +35,15 @@ export default {
   },
   created () {
     const typeToBreadcrumbs = {
-      disco: data => ([{
-        route: 'genero-name',
-        title: data.genre.name,
-        params: {
-          name: data.genre.slug
+      disco: data => (data.genres.map(genre => (
+        {
+          route: 'genero-name',
+          title: genre.name,
+          params: {
+            name: genre.slug
+          }
         }
-      },
-      {
+      )).concat([{
         route: 'artista-name',
         title: data.artist.name,
         params: {
@@ -52,6 +53,7 @@ export default {
       {
         title: data.name
       }])
+      )
     }
     this.breadcrumbs = typeToBreadcrumbs[this.parser](this.data)
   }
