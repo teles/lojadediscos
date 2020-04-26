@@ -111,15 +111,16 @@ export default {
 
 <style lang="sass">
 @import '../../../sass/stage.sass'
+@import '../../../sass/spacing.sass'
 
 .breadcrumb
   display: inline-flex
 
 .buy-box
-  background-color: hsl(60, 100%, 90%)
-  border: 1px solid hsl(60, 100%, 60%)
-  padding: 8px
-  margin: 16px 0
+  background-color: #fff2bd
+  border: 1px solid #ffdd57
+  padding: spacing(1)
+  margin: spacing(2) 0
 
   +element('action')
     font-size: 20px
@@ -135,12 +136,12 @@ export default {
       background-color: #15a292
 
   +element('price')
-    margin-bottom: 8px
+    margin-bottom: spacing(1)
     color: orange
     font-weight: 600
     font-size: 18px
 
   +element('stock')
-    margin-top: 8px
+    margin-top: spacing(1)
 
 </style>
