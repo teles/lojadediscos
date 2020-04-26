@@ -1,28 +1,7 @@
 <template>
   <div class="stage">
     <div class="stage__header">
-      <ul class="breadcrumb">
-        <li class="breadcrumb__item">
-          <a href="/" class="breadcrumb__anchor">
-            Home
-          </a>
-        </li>
-        <li class="breadcrumb__item">
-          <a href="/" class="breadcrumb__anchor">
-            Rock
-          </a>
-        </li>
-        <li class="breadcrumb__item">
-          <a href="/" class="breadcrumb__anchor">
-            Metallica
-          </a>
-        </li>
-        <li class="breadcrumb__item">
-          <a href="/" class="breadcrumb__anchor">
-            Black Album
-          </a>
-        </li>
-      </ul>
+      <breadcrumbs />
     </div>
     <div class="stage__featured">
       <disco-photos :photos="disco.images" />
@@ -86,9 +65,11 @@ import configs from '../../../discos.json'
 import DiscoPhotos from '../../../components/DiscoPhotos'
 import Tracklist from '../../../components/Tracklist'
 import RatingStar from '../../../components/RatingStar'
+import Breadcrumbs from '../../../components/Breadcrumbs'
 
 export default {
   components: {
+    Breadcrumbs,
     Tracklist,
     DiscoPhotos,
     RatingStar
