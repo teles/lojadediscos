@@ -54,6 +54,9 @@
         <h3 class="stage__section__title">
           Comentários:
         </h3>
+        <div>
+          <vue-disqus shortname="disqusUsername" :identifier="canonical" :url="canonical" />
+        </div>
       </section>
     </div>
   </div>
@@ -89,7 +92,9 @@ export default {
   },
   data () {
     return {
-      disco: {}
+      disco: {},
+      canonical: `${process.env.baseUrl}/${this.$route.path}`,
+      disqusUsername: configs.disqusUsername
     }
   },
   head () {

@@ -10236,6 +10236,11 @@ vue-currency-filter@^5.0.2:
   resolved "https://registry.yarnpkg.com/vue-currency-filter/-/vue-currency-filter-5.0.2.tgz#2ca893c0d0b5be139dbdd1fe9cc852119282b7da"
   integrity sha512-RmgAFxDJo9dALNlBk/OyT7TotICHLUX5OnVt4t1bq+tEMVTKY0cUDnHRITqqUQKNAaPSgBxs+x+G7OTylBTWpA==
 
+vue-disqus@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/vue-disqus/-/vue-disqus-3.0.5.tgz#8d0dd5cabdba7c47f82d129d2907a64366842fa8"
+  integrity sha512-T3Y68lXf5W2lYt6j4Y3kZ4opLPH0EAzqriy11MS4D4Q2+UN0tFuUXeYP1MxfvdyaCEboXSM6CUswxsULuNV70Q==
+
 vue-eslint-parser@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-7.0.0.tgz#a4ed2669f87179dedd06afdd8736acbb3a3864d6"
