@@ -4,7 +4,7 @@
       <breadcrumbs />
     </div>
     <div class="stage__featured">
-      <disco-photos :photos="disco.images" />
+      <photo-gallery :photos="disco.images" />
     </div>
     <div class="stage__content">
       <h1 class="stage__title">
@@ -66,7 +66,7 @@
 import Discojs from 'discojs'
 import DiscoFullAdapter from '../../../components/DiscoFullAdapter'
 import configs from '../../../discos.json'
-import DiscoPhotos from '../../../components/DiscoPhotos'
+import PhotoGallery from '../../../components/PhotoGallery'
 import Tracklist from '../../../components/Tracklist'
 import RatingStar from '../../../components/RatingStar'
 import Breadcrumbs from '../../../components/Breadcrumbs'
@@ -75,7 +75,7 @@ export default {
   components: {
     Breadcrumbs,
     Tracklist,
-    DiscoPhotos,
+    PhotoGallery,
     RatingStar
   },
   async asyncData ({ params }) {
@@ -130,6 +130,9 @@ export default {
     padding: 8px
     border-radius: 4px
     cursor: pointer
+    transition: all ease-in-out .2s
+    &:hover
+      background-color: #15a292
 
   +element('price')
     margin-bottom: 8px
