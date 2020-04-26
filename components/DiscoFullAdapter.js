@@ -10,7 +10,8 @@ class DiscoFullAdapter {
     const artist = release.artists.find(artist => artist.name === release.artists_sort)
 
     this.artist = {
-      name: artist.name
+      name: artist.name,
+      slug: Slugify(artist.name)
     }
 
     this.rating = {
@@ -31,6 +32,10 @@ class DiscoFullAdapter {
     }))
 
     this.year = release.year
+    this.genre = {
+      name: release.genres[0],
+      slug: Slugify(release.genres[0])
+    }
 
     // this.customFields = (release.notes || []).reduce((total, note) => {
     //   const key = Slugify(fields.fields.find(field => field.id === note.field_id).name)

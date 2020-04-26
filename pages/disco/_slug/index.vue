@@ -1,7 +1,7 @@
 <template>
   <div class="stage">
     <div class="stage__header">
-      <breadcrumbs />
+      <breadcrumbs :data="disco" :parser="'disco'" />
     </div>
     <div class="stage__featured">
       <photo-gallery :photos="disco.images" />

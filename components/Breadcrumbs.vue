@@ -5,19 +5,16 @@
         Home
       </a>
     </li>
-    <li class="breadcrumbs__item">
-      <a href="/" class="breadcrumbs__anchor">
-        Rock
-      </a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a href="/" class="breadcrumbs__anchor">
-        Metallica
-      </a>
-    </li>
-    <li class="breadcrumbs__item">
-      <span class="breadcrumbs__anchor--current">
-        Black Album
+    <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="breadcrumbs__item">
+      <n-link
+        v-if="index < breadcrumbs.length - 1"
+        :to="{ name: breadcrumb.route, params: breadcrumb.params }"
+        class="breadcrumbs__anchor"
+      >
+        {{ breadcrumb.title }}
+      </n-link>
+      <span v-else class="breadcrumbs__anchor--current">
+        {{ breadcrumb.title }}
       </span>
     </li>
   </ul>
@@ -26,10 +23,37 @@
 <script>
 export default {
   props: {
-    breadcrumbs: {
-      type: Array,
-      required: false
+    data: {
+      type: Object,
+      required: true
+    },
+    parser: {
+      type: String,
+      required: false,
+      default: 'disco'
     }
+  },
+  created () {
+    const typeToBreadcrumbs = {
+      disco: data => ([{
+        route: 'genero-name',
+        title: data.genre.name,
+        params: {
+          name: data.genre.slug
+        }
+      },
+      {
+        route: 'artista-name',
+        title: data.artist.name,
+        params: {
+          name: data.artist.slug
+        }
+      },
+      {
+        title: data.name
+      }])
+    }
+    this.breadcrumbs = typeToBreadcrumbs[this.parser](this.data)
   }
 }
 </script>
