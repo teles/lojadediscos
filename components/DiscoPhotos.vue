@@ -55,6 +55,17 @@ export default {
   @import "../sass/bem.sass"
   @import "../sass/spacing.sass"
 
+  .disco-photos
+    &::after
+      position: absolute
+      content: "IMAGEM MERAMENTE ILUSTRATIVA"
+      right: 0
+      bottom: 0
+      background-color: #fff
+      font-size: 9px
+      line-height: 2
+      opacity: .95
+
   .carousel
     display: flex
     justify-content: space-between

@@ -30,7 +30,8 @@
           R$ 120,00
         </p>
         <button class="buy-box__action">
-          Comprar
+          <span>Falar com o vendedor</span>
+          <font-awesome-icon :icon="['fab', 'whatsapp']" />
         </button>
         <p class="buy-box__stock">
           <strong>
@@ -118,7 +119,7 @@ export default {
   +element('action')
     font-size: 20px
     font-weight: 300
-    background: #666
+    background-color: #128c7e
     color: #fff
     border: none
     padding: 8px
