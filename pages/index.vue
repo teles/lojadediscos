@@ -46,8 +46,11 @@ export default {
 <style lang="sass">
 
 @import '../sass/stage.sass'
+@import '../sass/spacing.sass'
 
 .disco-grid
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr) )
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr) )
   display: grid
+  grid-gap: spacing(1)
+
 </style>

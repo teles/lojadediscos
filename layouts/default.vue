@@ -2,7 +2,7 @@
   <div class="layout">
     <page-header />
     <nuxt />
-    <page-footer class="layout__footer"/>
+    <page-footer class="layout__footer" />
   </div>
 </template>
 
