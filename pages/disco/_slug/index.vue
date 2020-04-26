@@ -64,16 +64,17 @@
       </div>
     </div>
     <div class="stage__extra">
-      <h3 class="stage__content__title">
-        Lista de músicas
-      </h3>
-      <tracklist :tracklist="disco.tracklist" />
-      <h3 class="stage__content__title">
-        Comentários
-      </h3>
-      <div>
-        Bla bla bla
-      </div>
+      <section class="stage__section">
+        <h3 class="stage__section__title">
+          Lista de músicas:
+        </h3>
+        <tracklist :tracklist="disco.tracklist" />
+      </section>
+      <section class="stage__section">
+        <h3 class="stage__section__title">
+          Comentários:
+        </h3>
+      </section>
     </div>
   </div>
 </template>
