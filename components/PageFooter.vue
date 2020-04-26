@@ -1,8 +1,8 @@
 <template>
-  <div class="page-header">
-    <div class="page-header__content">
-      <p class="page-header__title">
-        Sua loja de discos
+  <div class="page-footer">
+    <div class="page-footer__content">
+      <p class="page-footer__title">
+        Rodapé
       </p>
     </div>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'PageHeader',
+  name: 'PageFooter',
   data () {
     return {}
   }
@@ -23,20 +23,20 @@ export default {
 @import '../sass/spacing.sass'
 @import '../sass/grid-variables.sass'
 
-.page-header
+.page-footer
   display: grid
   grid-template-columns: 1fr
   grid-gap: spacing(2)
-  padding: spacing(2)
-  grid-template-areas:  "page-header"
-  background-color: #0e1615
+  padding: spacing(4) spacing(2)
+  grid-template-areas:  "page-footer"
+  background-color: #666
   color: #fff
 
   @media(min-width: $screen-tablet-min)
     grid-template-columns: $desktop-4-grid-columns
-    grid-template-areas: ". page-header page-header ."
+    grid-template-areas: ". page-footer page-footer ."
 
   +element('content')
-    grid-area: page-header
+    grid-area: page-footer
 
 </style>
