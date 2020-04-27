@@ -22,9 +22,12 @@
         </strong>
         <span>
           {{ disco.formats.map(format => `${format.name}`).join(', ') }}
+          <span v-if="disco.quantity > 1">
+            ({{ disco.quantity }} itens)
+          </span>
         </span>
         <strong class="stage__subtitle__part">
-          País:
+          Origem:
         </strong>
         <span>
           {{ disco.country }}
@@ -39,10 +42,8 @@
           <a href="https://www.discogs.com">discogs</a>
         </span>
       </div>
-      <div class="stage__description">
-        &nbsp;
-      </div>
-      <buy-box />
+      <div class="stage__description" />
+      <buy-box :old-price="100" :price="90" :stock="1" />
     </div>
     <div class="stage__extra">
       <section class="stage__section">

@@ -1,4 +1,5 @@
 import Slugify from './Slugify'
+import Translator from './Translator'
 
 class DiscoFullAdapter {
   constructor (release) {
@@ -33,17 +34,20 @@ class DiscoFullAdapter {
 
     this.year = release.year
     this.genres = release.genres.map(genre => ({
-      name: genre,
+      name: Translator(genre),
       slug: Slugify(genre)
     }))
 
     this.formats = release.formats.map(format => ({
-      name: format.name,
+      name: Translator([format.name].concat(format.descriptions).join(' ')),
       slug: Slugify(format.name)
     }))
-    this.country = release.country
 
-    console.log(release) // eslint-disable-line
+    this.quantity = release.format_quantity
+
+    this.country = Translator(release.country)
+
+    // console.log(release) // eslint-disable-line
     // this.customFields = (release.notes || []).reduce((total, note) => {
     //   const key = Slugify(fields.fields.find(field => field.id === note.field_id).name)
     //   total[key] = note.value
