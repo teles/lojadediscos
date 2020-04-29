@@ -15,7 +15,7 @@
       <span>Falar com o vendedor &nbsp;</span>
       <font-awesome-icon :icon="['fab', 'whatsapp']" />
     </a>
-    <p class="buy-box__informations">
+    <div class="buy-box__informations">
       <div class="buy-box__informations__item">
         <strong>
           Disponibilidade:
@@ -35,6 +35,7 @@
           Cartão de crédito, débito, transferência bancária. Aceitamos trocas.
         </span>
       </div>
+    </div>
   </div>
 </template>
 <script>
