@@ -11,7 +11,7 @@
       <n-link :to="{name: 'disco-slug', params: {slug: disco.slug}}" class="disco__name">
         {{ disco.name }}
       </n-link>
-      <p class="disco__price">
+      <p v-if="disco.customFields && disco.customFields.preco" class="disco__price">
         {{ disco.customFields.preco | currency }}
       </p>
     </div>

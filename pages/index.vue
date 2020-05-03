@@ -21,7 +21,7 @@ export default {
   components: {
     DiscoThumb
   },
-  async asyncData () {
+  async asyncData ({ app, params, store }) {
     const disco = new Discojs({
       userToken: configs.token
     })
@@ -29,15 +29,21 @@ export default {
     const notes = await disco.getCustomFields(configs.username)
     const items = await disco.getItemsInFolderForUser(configs.username, 0)
 
-    return {
-      discos: items.releases.map(release => new DiscoAdapter(release, notes))
-    }
+    items.releases.forEach((item) => {
+      store.commit('discos/add', new DiscoAdapter(item, notes))
+    })
+
+    return {}
   },
   data () {
     return {
-      discos: [],
       notes: [],
       loading: false
+    }
+  },
+  computed: {
+    discos () {
+      return Object.values(this.$store.state.discos.listById)
     }
   }
 }
