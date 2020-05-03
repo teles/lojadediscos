@@ -82,7 +82,7 @@ export default {
     RatingStar,
     BuyBox
   },
-  async asyncData ({ params }) {
+  async asyncData ({ app, params, store }) {
     const disco = new Discojs({
       userToken: configs.token
     })
@@ -90,15 +90,21 @@ export default {
     const release = await disco.getRelease(releaseId)
     const notes = await disco.getCustomFields(configs.username)
 
+    store.commit('discos/addComplete', new DiscoFullAdapter(release, notes))
+
     return {
-      disco: new DiscoFullAdapter(release, notes)
+      id: releaseId
     }
   },
   data () {
     return {
-      disco: {},
       canonical: `${process.env.baseUrl}/${this.$route.path}`,
       disqusUsername: configs.disqusUsername
+    }
+  },
+  computed: {
+    disco () {
+      return this.$store.getters['discos/getCompleteById'](this.id)
     }
   },
   head () {
