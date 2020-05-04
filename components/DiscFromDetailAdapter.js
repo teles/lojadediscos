@@ -1,7 +1,7 @@
 import Slugify from './Slugify'
 import Translator from './Translator'
 
-class DiscoFullAdapter {
+class DiscFromDetailAdapter {
   constructor (release) {
     this.id = release.id
     this.name = release.title
@@ -55,4 +55,4 @@ class DiscoFullAdapter {
     // }, {})
   }
 }
-export default DiscoFullAdapter
+export default DiscFromDetailAdapter

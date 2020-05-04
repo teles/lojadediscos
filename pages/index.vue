@@ -14,7 +14,6 @@
 <script>
 import Discojs from 'discojs'
 import DiscoThumb from '../components/DiscoThumb'
-import DiscoAdapter from '../components/DiscoAdapter'
 import configs from '../discos.json'
 
 export default {
@@ -29,8 +28,8 @@ export default {
     const notes = await disco.getCustomFields(configs.username)
     const items = await disco.getItemsInFolderForUser(configs.username, 0)
 
-    items.releases.forEach((item) => {
-      store.commit('discos/add', new DiscoAdapter(item, notes))
+    items.releases.forEach((data) => {
+      store.commit('discos/add', { data, notes })
     })
 
     return {}

@@ -66,7 +66,6 @@
 
 <script>
 import Discojs from 'discojs'
-import DiscoFullAdapter from '../../../components/DiscoFullAdapter'
 import configs from '../../../discos.json'
 import PhotoGallery from '../../../components/PhotoGallery'
 import Tracklist from '../../../components/Tracklist'
@@ -83,14 +82,15 @@ export default {
     BuyBox
   },
   async asyncData ({ app, params, store }) {
-    const disco = new Discojs({
+    const discojs = new Discojs({
       userToken: configs.token
     })
-    const releaseId = parseInt(params.slug.match(/_([0-9]+)/)[1])
-    const release = await disco.getRelease(releaseId)
-    const notes = await disco.getCustomFields(configs.username)
 
-    store.commit('discos/addComplete', new DiscoFullAdapter(release, notes))
+    const releaseId = parseInt(params.slug.match(/_([0-9]+)/)[1])
+    const release = await discojs.getRelease(releaseId)
+    const notes = await discojs.getCustomFields(configs.username)
+
+    store.commit('discos/addComplete', { data: release, notes })
 
     return {
       id: releaseId

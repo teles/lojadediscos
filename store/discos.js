@@ -1,14 +1,16 @@
+import Disco from '../components/Disco'
+
 export const state = () => ({
   listById: {},
   listCompleteById: {}
 })
 
 export const mutations = {
-  add (state, disco) {
-    state.listById[disco.id] = disco
+  add (state, data) {
+    state.listById[data.data.id] = new Disco(data.data, 'list', data.notes)
   },
-  addComplete (state, disco) {
-    state.listCompleteById[disco.id] = disco
+  addComplete (state, data) {
+    state.listCompleteById[data.data.id] = new Disco(data.data, 'detail', data.notes)
   }
 }
 
