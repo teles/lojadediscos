@@ -22,6 +22,14 @@ function Translator (word) {
   {
     from: 'US',
     to: 'Estados Unidos'
+  },
+  {
+    from: 'Funk / Soul',
+    to: 'Funk & Soul'
+  },
+  {
+    from: 'Latin',
+    to: 'Música Latina'
   }]
 
   return translations.reduce((total, translation) => {

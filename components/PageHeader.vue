@@ -4,15 +4,27 @@
       <p class="page-header__title">
         Sua loja de discos
       </p>
+      <p>
+        <n-link :to="{name: 'genero-slug', params: {slug: genre.slug}}" v-for="genre in genres" :key="genre.slug">
+          {{ genre.name }}
+        </n-link>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'PageHeader',
   data () {
     return {}
+  },
+  computed: {
+    ...mapGetters('discos', [
+      'genres'
+    ])
   }
 }
 </script>

@@ -17,5 +17,24 @@ export const mutations = {
 export const getters = {
   getCompleteById: state => (id) => {
     return state.listCompleteById[id]
+  },
+  listByGenreSlug: state => (genreSlug) => {
+    return Object.values(state.listById).filter((item) => {
+      return item.genres.map(genre => genre.slug).includes(genreSlug)
+    })
+  },
+  genres: (state) => {
+    return Object.values(state.listById).reduce((total, item) => {
+      item.genres.forEach((genre) => {
+        const isNewGenre = total.some((totalItem) => {
+          return totalItem.slug === genre.slug
+        }) === false
+
+        if (isNewGenre) {
+          total.push(genre)
+        }
+      })
+      return total
+    }, [])
   }
 }
