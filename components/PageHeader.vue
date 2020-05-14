@@ -5,7 +5,7 @@
         Sua loja de discos
       </p>
       <p>
-        <n-link :to="{name: 'genero-slug', params: {slug: genre.slug}}" v-for="genre in genres" :key="genre.slug">
+        <n-link v-for="genre in genres" :key="genre.slug" :to="{name: 'genero-slug', params: {slug: genre.slug}}">
           {{ genre.name }}
         </n-link>
       </p>
