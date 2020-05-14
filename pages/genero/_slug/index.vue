@@ -4,19 +4,19 @@
       <div v-if="$nuxt.$loading === true">
         carregando...
       </div>
-      <div v-else class="disco-grid">
-        <disco-thumb v-for="disco in discos" :key="disco.id" :disco="disco" />
+      <div v-else>
+        <discos-showcase :discos="discos" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-import DiscoThumb from '../../../components/DiscoThumb'
+import DiscosShowcase from '../../../components/DiscosShowcase'
 
 export default {
   components: {
-    DiscoThumb
+    DiscosShowcase
   },
   data () {
     return {
