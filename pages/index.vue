@@ -69,11 +69,6 @@ export default {
 @import '../sass/spacing.sass'
 @import '../sass/bem.sass'
 
-.disco-grid
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr) )
-  display: grid
-  grid-gap: spacing(1)
-
 .jumbotron
   min-height: 25vh
   height: 40vh
@@ -101,7 +96,7 @@ export default {
     color: #fff
     font-size: calc(1vw + 2em)
     text-shadow: 1px 1px rgba(0, 0, 0, .5), 1px 1px rgba(0, 0, 0, .5), 1px 1px rgba(0, 0, 0, .5), 1px 1px rgba(0, 0, 0, .5)
-    font-weight: 600
+    font-weight: 800
     margin-bottom: spacing(2)
     letter-spacing: .1px
 
