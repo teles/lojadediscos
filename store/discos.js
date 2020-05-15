@@ -23,6 +23,12 @@ export const getters = {
       return item.genres.map(genre => genre.slug).includes(genreSlug)
     })
   },
+  genreBySlug: state => (slug) => {
+    return {
+      name: 'Teste',
+      slug
+    }
+  },
   genres: (state) => {
     return Object.values(state.listById).reduce((total, item) => {
       item.genres.forEach((genre) => {

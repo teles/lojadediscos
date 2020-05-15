@@ -1,24 +1,30 @@
 <template>
   <div class="page-header">
     <div class="page-header__bar">
-      <p class="page-header__title">
-        Sua loja de discos
-      </p>
-      <form class="page-header__search-form">
-        <input class="page-header__search-form__input">
-        <button class="page-header__search-form__button">
-          <font-awesome-icon :icon="['fas', 'search']" />
-        </button>
-      </form>
+      <div class="page-header__bar__content">
+        <p class="page-header__title">
+          <a href="/" class="page-header__title__anchor">
+            Sua loja de discos
+          </a>
+        </p>
+        <form class="page-header__search-form">
+          <input class="page-header__search-form__input">
+          <button class="page-header__search-form__button">
+            <font-awesome-icon :icon="['fas', 'search']" />
+          </button>
+        </form>
+      </div>
     </div>
-    <menu class="page-header__menu">
-      <ul class="page-header__menu__list">
-        <li class="page-header__menu__list__item">
-          <n-link class="page-header__menu__anchor" v-for="genre in genres" :key="genre.slug" :to="{name: 'genero-slug', params: {slug: genre.slug}}">
-            {{ genre.name }}
-          </n-link>
-        </li>
-      </ul>
+    <menu class="page-header__bar--auxiliar">
+      <div class="page-header__bar__content">
+        <ul class="page-header__bar__list">
+          <li class="page-header__bar__list__item">
+            <n-link class="page-header__bar__list__anchor" v-for="genre in genres" :key="genre.slug" :to="{name: 'genero-slug', params: {slug: genre.slug}}">
+              {{ genre.name }}
+            </n-link>
+          </li>
+        </ul>
+      </div>
     </menu>
   </div>
 </template>
@@ -50,16 +56,43 @@ export default {
   flex-direction: column
   color: #fff
 
+  +element('title')
+    color: #fff
+    font-weight: 300
+
+    +element('anchor')
+      color: inherit
+      &:hover
+        color: #fff
+
   +element('bar')
-    display: flex
+    display: grid
+    grid-template-columns: $desktop-4-grid-columns
+    grid-template-areas: ". bar-content bar-content ."
     align-items: center
     justify-content: space-between
-    padding: spacing(2)
+    padding: spacing(2) 0
     background-color: #c12725
 
-  +element('menu')
-    padding: 0 spacing(2)
-    background-color: #f7f8fb
+    +modifier('auxiliar')
+      padding: 0
+      margin: 0
+      background-color: #f7f8fb
+
+    +element('content')
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      grid-area: bar-content
+
+    +element('list')
+      +element('anchor')
+        font-weight: 300
+        display: inline-block
+        padding: spacing(2) spacing(1)
+        &:hover
+          background-color: #ededed
 
   +element('search-form')
     display: inline-flex

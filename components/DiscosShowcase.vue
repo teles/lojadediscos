@@ -2,7 +2,7 @@
   <div class="disco-showcase">
     <h3 class="disco-showcase__title"> {{ title }} </h3>
     <div class="disco-showcase__grid">
-      <disco-thumb v-for="disco in discos" :key="disco.id" :disco="disco" />
+      <disco-thumb v-for="disco in discos.slice(0, max)" :key="disco.id" :disco="disco" />
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
     max: {
       type: Number,
       required: false,
-      default: 50
+      default: 500
     }
   }
 }
