@@ -1,0 +1,42 @@
+/// Observações:
+/// - Não setar "display: none;" na classe que irá receber uma destas classes.
+
+/// Esconde até 319px, e exibe a partir de 320px.
+.u-hide-phone
+  @media (max-width: $screen-phone-max)
+    display: none !important
+
+/// Exibe até 319px, e esconde a partir de 320px.
+.u-show-phone
+  @media (min-width: $screen-phone-min)
+    display: none !important
+
+/// Esconde até 767px, e exibe a partir de 768px.
+.u-hide-tablet
+  @media (max-width: $screen-tablet-max)
+    display: none !important
+
+/// Exibe até 767px, e esconde a partir de 768px.
+.u-show-tablet
+  @media (min-width: $screen-tablet-min)
+    display: none !important
+
+/// Esconde até 1023px, e exibe a partir de 1024px.
+.u-hide-desktop
+  @media (max-width: $screen-desktop-max)
+    display: none !important
+
+/// Exibe até 1023px, e esconde a partir de 1024px.
+.u-show-desktop
+  @media (min-width: $screen-desktop-min)
+    display: none !important
+
+/// Esconde até 1149px, e exibe a partir de 1150px.
+.u-hide-monitor
+  @media (max-width: $screen-monitor-max)
+    display: none !important
+
+/// Exibe até 1149px, e esconde a partir de 1150px.
+.u-show-monitor
+  @media (min-width: $screen-monitor-min)
+    display: none !important
