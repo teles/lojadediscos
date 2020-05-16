@@ -20,14 +20,19 @@
         <font-awesome-icon :icon="['fas', 'bars']" class="page-header__bar__icon" v-on:click="toggleMobileMenu()" />
       </div>
     </div>
-    <ul v-if="isMobileMenuOpen" class="page-header__mobile-menu">
-      <li v-for="genre in genres" :key="genre.slug" class="page-header__mobile-menu__list__item">
-        <n-link class="page-header__mobile-menu__list__anchor" :to="{name: 'genero-slug', params: {slug: genre.slug}}">
-          {{ genre.name }}
-        </n-link>
-      </li>
+    <menu v-if="isMobileMenuOpen" class="page-header__mobile-menu">
+      <ul class="page-header__mobile-menu__panel">
+        <li class="page-header__mobile-menu__list__item">
+          <a href="/" class="page-header__mobile-menu__list__anchor"> Home</a>
+        </li>
+        <li v-for="genre in genres" :key="genre.slug" class="page-header__mobile-menu__list__item" v-on:click="toggleMobileMenu()">
+          <n-link class="page-header__mobile-menu__list__anchor" :to="{name: 'genero-slug', params: {slug: genre.slug}}">
+            {{ genre.name }}
+          </n-link>
+        </li>
+      </ul>
       <div class="page-header__mobile-menu__overlay" v-on:click="toggleMobileMenu()" />
-    </ul>
+    </menu>
     <menu class="page-header__bar--auxiliar u-hide-tablet">
       <div class="page-header__bar__content">
         <ul class="page-header__bar__list">
@@ -160,31 +165,41 @@ export default {
       padding: 8px
 
   +element('mobile-menu')
+    display: flex
     position: fixed
     z-index: 3
-    background: #f8f8f8
-    min-height: 100vh
+    height: 100vh
+    max-height: 100vh
     padding: 0
-    width: calc(100vw - 50px)
+    width: 100%
+    margin: 0
+    top: 0
+
+    +element('panel')
+      background: #f8f8f8
+      min-width: 260px
+      height: 100%
+      max-width: calc(100vw - 80px)
+      min-height: 100vh
+      overflow: auto
 
     +element('overlay')
-      content: ''
-      height: 100%
-      left: 100%
-      position: absolute
-      width: 50px
-      top: 0
+      height: 100vh
+      width: 100%
+      flex-grow: 1
+      min-width: 60px
       border-left: 1px solid rgba(0, 0, 0, .5)
       background-image: linear-gradient(to right, rgba(0, 0, 0, .5), rgba(0, 0, 0, .45))
 
     +element('list')
 
       +element('item')
-        padding: 16px
         border-bottom: 1px solid hsl(0, 0%, 92%)
         border-top: 1px solid hsl(0, 0%, 97%)
 
       +element('anchor')
+        display: block
+        padding: spacing(2)
         color: hsl(207, 68%, 45%)
 
 </style>
