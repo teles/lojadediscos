@@ -17,7 +17,7 @@
     </div>
     <div class="page-header__bar--auxiliar u-show-tablet">
       <div class="page-header__bar__content">
-        <font-awesome-icon :icon="['fas', 'bars']" class="page-header__bar__icon" @:click="toggleMobileMenu()" />
+        <font-awesome-icon :icon="['fas', 'bars']" class="page-header__bar__icon" v-on:click="toggleMobileMenu()" />
       </div>
     </div>
     <ul v-if="isMobileMenuOpen" class="page-header__mobile-menu">
@@ -26,7 +26,7 @@
           {{ genre.name }}
         </n-link>
       </li>
-      <div class="page-header__mobile-menu__overlay" @:click="toggleMobileMenu()" />
+      <div class="page-header__mobile-menu__overlay" v-on:click="toggleMobileMenu()" />
     </ul>
     <menu class="page-header__bar--auxiliar u-hide-tablet">
       <div class="page-header__bar__content">
